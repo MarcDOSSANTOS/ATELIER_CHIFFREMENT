@@ -48,7 +48,7 @@ def main():
     p.add_argument("mode", choices=["encrypt", "decrypt"])
     p.add_argument("input", help="Fichier d'entrée")
     p.add_argument("output", help="Fichier de sortie")
-    p.add_argument("-k", "--key", default="secret.key", help="Fichier contenant la clé (par défaut: secret.key)")
+    p.add_argument("-k", "--key", default="secret2.key", help="Fichier contenant la clé (par défaut: secret2.key)")
     
     args = p.parse_args()
 
