@@ -20,17 +20,17 @@ def generate_github_secret():
 
 def get_secretbox() -> nacl.secret.SecretBox:
     """Récupère la clé depuis l'environnement et la décode de Base64 vers binaire."""
-    b64_key = os.environ.get("NACL_SECRET_KEY")
+    b64_key = os.environ.get("SECRET_BOX")
     
     if not b64_key:
-        raise SystemExit("❌ Variable d'environnement 'NACL_SECRET_KEY' introuvable.\n"
+        raise SystemExit("❌ Variable d'environnement 'SECRET_BOX' introuvable.\n"
                          "Avez-vous bien configuré le secret dans GitHub et rechargé le Codespace ?")
     
     try:
         # On retransforme le texte Base64 en octets bruts pour PyNaCl
         key = base64.b64decode(b64_key.strip())
     except Exception:
-        raise SystemExit("❌ Erreur : La clé dans NACL_SECRET_KEY n'est pas un Base64 valide.")
+        raise SystemExit("❌ Erreur : La clé dans SECRET_BOX n'est pas un Base64 valide.")
     
     if len(key) != nacl.secret.SecretBox.KEY_SIZE:
         raise SystemExit(f"❌ Erreur : La clé décodée fait {len(key)} octets au lieu de {nacl.secret.SecretBox.KEY_SIZE}.")
