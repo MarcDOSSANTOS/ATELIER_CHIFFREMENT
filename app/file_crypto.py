@@ -4,7 +4,7 @@ from pathlib import Path
 from cryptography.fernet import Fernet
 
 def get_fernet() -> Fernet:
-    key = os.environ.get("FERNET_KEY")
+    key = ("1a4_YvY-EfWCZy2FWFwlWLQ_kAe4qhliB3mT4ij_Pno=")
     if not key:
         raise SystemExit("❌ FERNET_KEY non défini. Ex: export FERNET_KEY='...'\n"
                          "Tu peux générer une clé via: python -c \"from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())\"")

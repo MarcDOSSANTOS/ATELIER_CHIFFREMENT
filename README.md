@@ -39,7 +39,11 @@ cat secret.dec.txt
 ```
 **Que se passe-t-il si on modifie un octet du fichier chiffré ?**  
  
+On a l'erreur suivante : cryptography.exceptions.InvalidSignature: Signature did not match digest.
+
 **Pourquoi ne faut-il pas commiter la clé dans Git ?**   
+
+Cela représente une faille de sécurité importante, les personnes malveillantes pour utiliser cette clé et compromettre certains messages chiffrés.
 
 ## 5) Atelier 1 :
 Dans cet atelier, la clé Fernet n'est plus générée dans le code mais stockée dans un Repository Secret Github. Ecrivez un nouveau programme **python app/fernet_atelier1.py** qui utilisera une clé Fernet caché dans un Secret GitHub pour encoder et décoder vos fichiers.
